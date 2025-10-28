@@ -30,11 +30,11 @@ hornbills$timestamps <- as.POSIXct(strptime(hornbills$study.local.timestamp, "%Y
 hornbills$id <- hornbills$tag.local.identifier
 
 # Load environmental data (predictors of hornbill movement)
-canopyHeight <- rast("~/Environmental Layers/ch.tif") # Canopy height
-dist2gap50 <- rast("~/d50.tif") # Distance to canopy gap >= 50 m2
-dist2gap500 <- rast("~/Environmental Layers/d500.tif") # Distance to canopy gap >= 500 m2
-VCI <- rast("~/Environmental Layers/vc.tif") # Vertical Complexity Index
-swamp <- rast("~/Environmental Layers/swamp.tif")
+canopyHeight <- rast("~/Environmental Data/ch.tif") # Canopy height
+dist2gap50 <- rast("~/Environmental Data/d50.tif") # Distance to canopy gap >= 50 m2
+dist2gap500 <- rast("~/Environmental Data/d500.tif") # Distance to canopy gap >= 500 m2
+VCI <- rast("~/Environmental Data/vc.tif") # Vertical Complexity Index
+swamp <- rast("~/Environmental Data/swamp.tif")
 
 # Create a raster stack of all our covariates
 veg.stack <- c(canopyHeight, dist2gap50, dist2gap500, VCI, swamp)
@@ -74,5 +74,6 @@ View(hornbill.extracted)
 
 # Save the iSSA-ready data
 save(hornbill.extracted, file = "~/hornbill.extracted.RData")
+
 
 
