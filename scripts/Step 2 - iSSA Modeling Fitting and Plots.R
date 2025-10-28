@@ -307,43 +307,43 @@ ggplot(logRSS_df, aes(x = VCI_scaled_x1, group = ID, color = ID, fill = ID)) +
 # For example, say  that you would like to examine whether swamps are an important driver of hornbill habitat selection. To test this using iSSA, we would start by constructing a "core model" that captures hornbill movement and habitat selection
 # without respect to swamps. Here is how to do this using glmmTMB:
 
-# m_core <- glmmTMB(
-#   case_ ~
-#      # Habitat
-#     CanopyHeight10m_scaled + VCI_scaled + dist2gap500_scaled +
-#     # Movement
-#     sl_ + log_sl_ + cos_ta_ +
-#     # Random effects
-#     (1 | step_id_) +                   # random intercept per step (Poisson trick)
-#     (0 + dist2gap500_scaled | id) +  # Allows selection for dist2gap500_scaled to vary across individuals
-#    (0 + sl_ + log_sl_ + cos_ta_ | id), # random slopes for movement parameters
-#  family = poisson(),
-#    data = steps
-#   )
-# 
-# save(m_core, file = "output/m_core.RData")
+m_core <- glmmTMB(
+  case_ ~
+     # Habitat
+    CanopyHeight10m_scaled + VCI_scaled + dist2gap500_scaled +
+    # Movement
+    sl_ + log_sl_ + cos_ta_ +
+    # Random effects
+    (1 | step_id_) +                   # random intercept per step (Poisson trick)
+    (0 + dist2gap500_scaled | id) +  # Allows selection for dist2gap500_scaled to vary across individuals
+   (0 + sl_ + log_sl_ + cos_ta_ | id), # random slopes for movement parameters
+ family = poisson(),
+   data = steps
+  )
 
-load("output/m_core.RData") # glmmTMB models take a long time to run so instead of running it live (using the above code), we are just loading the fitted model
+save(m_core, file = "output/m_core.RData")
+
+# load("output/m_core.RData") # glmmTMB models take a long time to run so instead of running it live (using the above code), we are just loading the fitted model
 
 # Now that the core model has been specified, we will fit a model that includes Swamp, using the core model as a foundation:
 
-# m_swamp <- glmmTMB(
-#   case_ ~
-#     # Habitat
-#     CanopyHeight10m_scaled + VCI_scaled + dist2gap500_scaled + Swamp +
-#     # Movement
-#     sl_ + log_sl_ + cos_ta_ +
-#     # Random effects
-#     (1 | step_id_) +                   # random intercept per step (Poisson trick)
-#     (0 + dist2gap500_scaled | id) +  # Allows selection for dist2gap500_scaled to vary across individuals
-#     (0 + sl_ + log_sl_ + cos_ta_ | id), # random slopes for movement parameters
-#   family = poisson(),
-#   data = steps
-# )
-# 
-# save(m_swamp, file = "output/m_swamp.RData")
+m_swamp <- glmmTMB(
+  case_ ~
+    # Habitat
+    CanopyHeight10m_scaled + VCI_scaled + dist2gap500_scaled + Swamp +
+    # Movement
+    sl_ + log_sl_ + cos_ta_ +
+    # Random effects
+    (1 | step_id_) +                   # random intercept per step (Poisson trick)
+    (0 + dist2gap500_scaled | id) +  # Allows selection for dist2gap500_scaled to vary across individuals
+    (0 + sl_ + log_sl_ + cos_ta_ | id), # random slopes for movement parameters
+  family = poisson(),
+  data = steps
+)
 
-load("output/m_swamp.RData") # glmmTMB models take a long time to run so instead of running it live (using the above code), we are just loading the fitted model
+save(m_swamp, file = "output/m_swamp.RData")
+
+# load("output/m_swamp.RData") # glmmTMB models take a long time to run so instead of running it live (using the above code), we are just loading the fitted model
 
 # First, we can ask if including dist2gap500 in the model improves model fit by competing m_core and m_dist2gap500 
 # by comparing their Akaike Information Criterion (AIC) scores:
