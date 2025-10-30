@@ -8,6 +8,10 @@
 # Clear the R environment
 rm(list = ls())
 
+# Set working directory
+working_directory <- "/Users/rhemitoth/Documents/PhD/Movement_Ecology_Workshop" # SET THIS TO WHERE THE MOVEMENT ECOLOGY WORKSHOP REPOSITORY IS LOCATED ON YOUR COMPUTER PLZ !!!!!
+setwd(working_directory) # sets the working directory to the movement ecology workshop repository
+
 ## Load required packages
 library(amt) # For processing movement data and preparing it for iSSA
 library(lubridate) # For working with date and time data
@@ -17,7 +21,7 @@ library(tidyverse) # For reshaping, and generally "wrangling" datasets
 ## *Download example data from GitHub and store it in your working directory
 
 # Load hornbill GPS data
-hornbills <- read.csv("~/white-thighed_hornbill_data.csv")
+hornbills <- read.csv("data/white-thighed_hornbill_data.csv")
 
 # Make the tag identifier a character vector
 hornbills$tag.local.identifier <- as.character(hornbills$tag.local.identifier)
@@ -30,11 +34,11 @@ hornbills$timestamps <- as.POSIXct(strptime(hornbills$study.local.timestamp, "%Y
 hornbills$id <- hornbills$tag.local.identifier
 
 # Load environmental data (predictors of hornbill movement)
-canopyHeight <- rast("~/Environmental Data/ch.tif") # Canopy height
-dist2gap50 <- rast("~/Environmental Data/d50.tif") # Distance to canopy gap >= 50 m2
-dist2gap500 <- rast("~/Environmental Data/d500.tif") # Distance to canopy gap >= 500 m2
-VCI <- rast("~/Environmental Data/vc.tif") # Vertical Complexity Index
-swamp <- rast("~/Environmental Data/swamp.tif")
+canopyHeight <- rast("data/Environmental Data/ch.tif") # Canopy height
+dist2gap50 <- rast("data/Environmental Data/d50.tif") # Distance to canopy gap >= 50 m2
+dist2gap500 <- rast("data/Environmental Data/d500.tif") # Distance to canopy gap >= 500 m2
+VCI <- rast("data/Environmental Data/vc.tif") # Vertical Complexity Index
+swamp <- rast("data/Environmental Data/swamp.tif")
 
 # Create a raster stack of all our covariates
 veg.stack <- c(canopyHeight, dist2gap50, dist2gap500, VCI, swamp)
@@ -73,7 +77,7 @@ hornbill.extracted <- trk1 |>
 View(hornbill.extracted)
 
 # Save the iSSA-ready data
-save(hornbill.extracted, file = "~/hornbill.extracted.RData")
+save(hornbill.extracted, file = "output/hornbill.extracted.RData")
 
 
 

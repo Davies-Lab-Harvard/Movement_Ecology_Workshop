@@ -223,9 +223,11 @@ ggplot(data = confints_for_plotting, aes(color = ID)) + # global aesthetics can 
   geom_errorbar(aes(y = ID,xmin=`lower .95`,xmax = `upper .95`)) +
   geom_vline(aes(xintercept = 1),color = "grey", linetype = "dashed")+ # Line to help distinguish selection from avoidance. Because we are plotting the odds ratio, the cutoff is 1
   theme_bw()+
+  ggtitle("Relative Odds of Selection by Predictor")+
   facet_wrap(~var)
 
 # How to interperet plot:
+# odds ratios represent how a change in a predictor variable affects the relative likelihood (odds) that a location is used vs. available.
 # - values > 1 indicate seleciton
 # - values < 1 indicate avoidance
 # - When you fit separate iSSA models per individual, each model’s coefficients (and exp(coef) odds ratios) 
@@ -285,12 +287,22 @@ logRSS_df <- rbind(
 )
 
 # Make the plot
-# Because VCI is in scaled units, a value of 0 on the x axis corresponds to mean VCI across all used and available points across all individuals
+
 ggplot(logRSS_df, aes(x = VCI_scaled_x1, group = ID, color = ID, fill = ID)) +
   geom_ribbon(aes(ymin = exp(lwr), ymax = exp(upr)), alpha = 0.2) +
   geom_line(aes(y = exp(log_rss)), size = 1)+
   geom_hline(yintercept = 1, color = "grey40", linetype = "dashed") +
+  labs(y = "Relative Selection Strength", x = "Scaled VCI") +
+  ggtitle("Relative Selection Strength for VCI (Compared to Mean VCI)") +
   theme_bw()
+
+# How to interperet this plot:
+# - The x-axis is scaled VCI. A value of zero corresponds to mean VCI across all used and available points across all individuals.
+# - The y-axis (Relative Selection Strength) shows how the odds of an animal selecting a location change relative to the reference (mean VCI).
+#     - RSS = 1 (the dashed grey line) indicates no difference in selection compared to the mean VCI.
+#     - RSS > 1 means the individual is more likely to select locations with that VCI value (selection).
+#     - RSS < 1 means the individual is less likely to select locations with that VCI value (avoidance).
+
 
 # Effect of VCI on habitat selection appears to be stronger in 8970 and 9984 compared to the others
 
