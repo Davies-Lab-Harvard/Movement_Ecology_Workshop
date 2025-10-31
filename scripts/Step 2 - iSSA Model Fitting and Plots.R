@@ -43,11 +43,12 @@ steps <- hornbill.extracted %>%
   select(id, steps) %>%
   unnest(steps)
 
-
 # Movement parameters -----------------------------------------------------
+# Before fitting the iSSA, we need to calculate the log of the step length and the cosine of the turn angle for every step to use as covariates in the model. 
 # When fitting an iSSA, the coefficient estimates for step length (sl_), log of the step length (log_sl_), and cosine of the turn angle (ta_)
 # serve as updated parameters for the gamma and von mises distributions used to generate the random steps.
-# Before fitting the iSSA, we need to calculate the log of the step length and the cosine of the turn angle for every step.
+# These updates correct the “tentative” movement distributions (used to generate available steps) to reflect the animal’s actual movement behavior after controlling for habitat selection.
+
 
 steps <- steps %>%
   mutate(log_sl_ = log(sl_),
@@ -66,9 +67,11 @@ steps$VCI_scaled <- scale(steps$VCI)
 
 
 # Categorical variables ---------------------------------------------------
+
 # In our dataset we have swamp as a categorical variable
 # Right now, it is coded as a 0 for no swamp and 1 for swamp
 # We need to make sure that R treats swamp as a category instead of a number by converting swamp from numeric to factor
+
 steps$Swamp <- factor(steps$Swamp)
 
 # Fitting separate iSSA models to each individual -------------------------
