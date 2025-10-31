@@ -255,10 +255,18 @@ loaded via a namespace (and not attached):
 
 ```
 **Relevant literature**
-1. 	T. Avgar, J. R. Potts, M. A. Lewis, M. S. Boyce, Integrated step selection analysis: bridging the gap between resource selection and animal movement. Methods Ecol. Evol. 7, 619–630 (2016).
-2. 	J. Signer, J. Fieberg, T. Avgar, Animal movement tools (amt): R package for managing tracking data and conducting habitat selection analyses. Ecol. Evol. 9, 880–890 (2019).
-3. 	J. Fieberg, J. Signer, B. Smith, T. Avgar, A ‘How to’ guide for interpreting parameters in habitat-selection analyses. J. Anim. Ecol. 90, 1027–1043 (2021).
+*Integrated Step Selection Analysis (iSSA) Methods*
+T. Avgar, J. R. Potts, M. A. Lewis, M. S. Boyce, Integrated step selection analysis: bridging the gap between resource selection and animal movement. Methods Ecol. Evol. 7, 619–630 (2016).
+J. Signer, J. Fieberg, T. Avgar, Animal movement tools (amt): R package for managing tracking data and conducting habitat selection analyses. Ecol. Evol. 9, 880–890 (2019).
+J. Fieberg, J. Signer, B. Smith, T. Avgar, A ‘How to’ guide for interpreting parameters in habitat-selection analyses. J. Anim. Ecol. 90, 1027–1043 (2021).
 
+*Hidden Markov Models/Inferring movement behavior*
+E. Gurarie, et al., What is the animal doing? Tools for exploring behavioural structure in animal movements. J. Anim. Ecol. 85, 69–84 (2016).
+R. Glennie, et al., Hidden Markov models: Pitfalls and opportunities in ecology. Methods Ecol. Evol. 14, 43–56 (2023).
+B. T. McClintock, T. Michelot, momentuHMM: R package for generalized hidden Markov models of animal movement. Methods Ecol. Evol. 9, 1518–1530 (2018).
+
+*Dyadic movement*
+R. Joo, M. P. Etienne, N. Bez, S. Mahévas, Metrics for describing dyadic movement: A review. Mov. Ecol. 6, 26 (2018).
 
 
 
