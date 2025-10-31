@@ -9,7 +9,7 @@
 rm(list = ls())
 
 # Set working directory
-working_directory <- "/Users/rhemitoth/Documents/PhD/Movement_Ecology_Workshop" # SET THIS TO WHERE THE MOVEMENT ECOLOGY WORKSHOP REPOSITORY IS LOCATED ON YOUR COMPUTER PLZ !!!!!
+working_directory <- "~/Dropbox/Harvard/amt Workshop/Movement_Ecology_Workshop/" # SET THIS TO WHERE THE MOVEMENT ECOLOGY WORKSHOP REPOSITORY IS LOCATED ON YOUR COMPUTER PLZ !!!!!
 setwd(working_directory) # sets the working directory to the movement ecology workshop repository
 
 ## Load required packages
@@ -63,6 +63,11 @@ hornbill.trk <- make_track(hornbills, .x=utm.easting, .y=utm.northing, .t=timest
 # Nest data by individual
 trk1 <- hornbill.trk |> nest(data = -"id")
 
+# Summarize sampling rate per individual
+trk1 %>%
+  mutate(sampling_rate_summary = map(data, summarize_sampling_rate)) %>%
+  unnest(sampling_rate_summary)
+
 # Prepare the track object for iSSA
 hornbill.extracted <- trk1 |> 
   mutate(steps = map(data, function(x) # Function to generate movement "steps"--straight lines between each consecutive GPS point
@@ -78,6 +83,5 @@ View(hornbill.extracted)
 
 # Save the iSSA-ready data
 save(hornbill.extracted, file = "output/hornbill.extracted.RData")
-
 
 
