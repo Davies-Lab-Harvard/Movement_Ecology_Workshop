@@ -1,5 +1,7 @@
 # Movement_Ecology_Workshop
 
+Video of 10/31/2025 Workshop: https://drive.google.com/file/d/1a8e69UfHKeGuSw7tDPWVVPBPNauVWi4m/view?usp=sharing
+
 ## Useful Links:
 [Getting started in amt](https://cran.r-project.org/web/packages/amt/vignettes/p1_getting_started.html)
 
@@ -255,21 +257,20 @@ loaded via a namespace (and not attached):
 
 ```
 **Relevant literature**
-*Integrated Step Selection Analysis (iSSA) Methods*
-T. Avgar, J. R. Potts, M. A. Lewis, M. S. Boyce, Integrated step selection analysis: bridging the gap between resource selection and animal movement. Methods Ecol. Evol. 7, 619–630 (2016).
-J. Signer, J. Fieberg, T. Avgar, Animal movement tools (amt): R package for managing tracking data and conducting habitat selection analyses. Ecol. Evol. 9, 880–890 (2019).
-J. Fieberg, J. Signer, B. Smith, T. Avgar, A ‘How to’ guide for interpreting parameters in habitat-selection analyses. J. Anim. Ecol. 90, 1027–1043 (2021).
+_Integrated Step Selection Analysis (iSSA) Methods_
+1. T. Avgar, J. R. Potts, M. A. Lewis, M. S. Boyce, Integrated step selection analysis: bridging the gap between resource selection and animal movement. Methods Ecol. Evol. 7, 619–630 (2016).
+2. J. Signer, J. Fieberg, T. Avgar, Animal movement tools (amt): R package for managing tracking data and conducting habitat selection analyses. Ecol. Evol. 9, 880–890 (2019).
+3. J. Fieberg, J. Signer, B. Smith, T. Avgar, A ‘How to’ guide for interpreting parameters in habitat-selection analyses. J. Anim. Ecol. 90, 1027–1043 (2021).
+4. T. Avgar, S. R. Lele, J. L. Keim, M. S. Boyce, Relative Selection Strength: Quantifying effect size in habitat‐ and step‐selection inference. Ecol. Evol. 7, 5322–5330 (2017). ## RSS methods
+5. S. Muff, J. Signer, J. Fieberg, Accounting for individual-specific variation in habitat-selection studies: Efficient estimation of mixed-effects models using Bayesian or frequentist computation. J. Anim. Ecol. 89, 80–92 (2020). ## GLMM for multiple animals
 
-*Hidden Markov Models/Inferring movement behavior*
-E. Gurarie, et al., What is the animal doing? Tools for exploring behavioural structure in animal movements. J. Anim. Ecol. 85, 69–84 (2016).
-R. Glennie, et al., Hidden Markov models: Pitfalls and opportunities in ecology. Methods Ecol. Evol. 14, 43–56 (2023).
-B. T. McClintock, T. Michelot, momentuHMM: R package for generalized hidden Markov models of animal movement. Methods Ecol. Evol. 9, 1518–1530 (2018).
+_Hidden Markov Models/Inferring movement behavior_
+1. E. Gurarie, et al., What is the animal doing? Tools for exploring behavioural structure in animal movements. J. Anim. Ecol. 85, 69–84 (2016).
+2. R. Glennie, et al., Hidden Markov models: Pitfalls and opportunities in ecology. Methods Ecol. Evol. 14, 43–56 (2023).
+3.  B. T. McClintock, T. Michelot, momentuHMM: R package for generalized hidden Markov models of animal movement. Methods Ecol. Evol. 9, 1518–1530 (2018).
 
-*Dyadic movement*
-R. Joo, M. P. Etienne, N. Bez, S. Mahévas, Metrics for describing dyadic movement: A review. Mov. Ecol. 6, 26 (2018).
-
-
+_Dyadic movement_
+1. R. Joo, M. P. Etienne, N. Bez, S. Mahévas, Metrics for describing dyadic movement: A review. Mov. Ecol. 6, 26 (2018).
 
 
 
->>>>>>> f49aed33bbe7be25473adc61ff896b7bbc67affc
