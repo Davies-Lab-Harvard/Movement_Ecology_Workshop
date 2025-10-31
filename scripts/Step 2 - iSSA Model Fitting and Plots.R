@@ -23,7 +23,7 @@
 ## ---------------------------
 
 rm(list = ls()) # clean your environment
-working_directory <- "/Users/rhemitoth/Documents/PhD/Movement_Ecology_Workshop" # SET THIS TO WHERE THE MOVEMENT ECOLOGY WORKSHOP REPOSITORY IS LOCATED ON YOUR COMPUTER PLZ !!!!!
+working_directory <- "~/Dropbox/Harvard/amt Workshop/Movement_Ecology_Workshop/" # SET THIS TO WHERE THE MOVEMENT ECOLOGY WORKSHOP REPOSITORY IS LOCATED ON YOUR COMPUTER PLZ !!!!!
 setwd(working_directory) # sets the working directory to the movement ecology workshop repository
 
 # Load Packages -----------------------------------------------------------
